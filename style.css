@@ -1,0 +1,370 @@
+/**/
+*{
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+#h1{
+    font-weight: bolder;
+}
+/* 0 to 900 font weight + bolder like options according to the need*/
+
+ #h2 {
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ /* there are three fonts written in in upper section thats for respnsiveness of websites beacuse sometimes the user opens it on laptop phone etc so sometimes it cant support that font so alternate is always the next one*/
+
+ #h3 {
+    font-size: 95px;
+    text-transform: uppercase;
+ }
+/*1 to 95px*/
+/*capitalize uppercase etc*/
+
+#p1{
+    line-height: 20px;
+}
+/* for distance between the lines*/
+
+
+
+/*hear starts level 2*/
+/* properties like
+padding: the area left around the content
+height and width: the main area of the content , blue area
+margin: distance between 2 contents the orange area
+border: the outer line to block the content and margin
+example is like a box and its inside content like for eg LED
+*/
+
+#div1{
+height: 100px;
+width: 100px;
+background-color: aqua;
+border-width: 2px;
+border-style: solid;
+border-color: violet;
+text-align: center;
+border-radius: 20px;
+padding: 25px 25px 25px 25px;
+margin: 50px 50px 50px 100px;
+
+}
+/* text lign stays in center because border was solid*/
+/* to circle the box we use BORDER RADIUS, IF HEIGHT WIDTH IS SAMe we use 50% in border radius to make it full circle , */
+/*in orer to do padding from all sides you just move clockwise and write all 4 of pedding as in upper example, the same goes with MARGIN*/
+#span1{
+height: 100px;
+width: 50px;
+display: inline-block;
+background-color: aqua;
+}
+/*inline block changed the size of span, nothing ese changes it*/
+
+
+#div2{
+    
+    background-color: black;
+    height: 30px;
+
+
+}
+button{
+    background-color: red;
+}
+a {
+    margin-right: 200px;
+}
+#input1{
+    color: black;
+}
+
+#div3{
+    .displayproperty{
+        background-color: rgba(255, 0, 0, 0.5);
+        width: 200px;
+        height: 200px;
+        margin: 50px;
+        padding: 50px;
+        display: inline-block;
+
+    }
+}
+/*display properties: like
+ inline:stays in same line, does not cover extra area
+  block:covers extra area
+   inline-block: covers all sides of margin padding with single command like 50px
+   none: if used it removes the data and leaves the space for the other content to take its place
+   */
+/* alpha chanel: used with rgb as rgba whose value is between 0 to 1, like 0.25,0.35 etc.  it lights or darks the color*/
+   /*visiibilty:none, it obly disappears the content but not its place, the place stays intact*/
+
+
+   #div4{
+    height: 30px;
+    width: 100px;
+    background-color: blue;
+    display: inline-block;
+   }
+   #div5{
+    height: 100px;
+    width: 50%;
+    background-color: brown;
+   }
+   /* these are relative units
+   unit: 
+   %: is used as a child of parent tag. if for example the value of width height margin etc is set to 100px or somelse, then we can set the child tag value with % in relation to parent tag for example parent tag is 100px with % we write 50% it sets to 50% of parents size
+   em: it can be set the same like 1em  or double 2em, or according to the need but some properties maintain  their own size of em and not dependent on parent size
+   rem: root em. default html settings eg font size etc
+   vh & vw: viewort height & width could take whole space of browser window. 1-100 can be used.
+    */
+
+
+    /* begginer finished*/
+
+    /* intermediate started*/
+
+
+.box1{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    border: solid;
+    display: inline-block;
+
+}
+#box1{
+    position: static;
+    z-index: 1;
+    background-image: url("sample photo.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+          /* back ground image put in same folder as html file, change size to fit pic according to need*/
+#box2{
+    position: relative;
+    top: 20px;
+    right: 20px;
+    z-index: -3;
+}
+#box3{
+    position: absolute;
+    top: 20px;
+}
+#box4{
+    position: fixed;
+        width:100px;
+
+    top: 0px;
+}
+#box5{
+    position: sticky;
+    top: 0px;
+    left: 100px;
+}
+
+/* positions
+static: stays same no top right left property changes it. z index not apply here
+relative: it moves from its its original place to top bottom right left, we just have to set its value in px
+absolute: its moves to its ancestral tag which is normally body tag then it coud be others .the nearest one positions it 
+fixed: if given any property of right left top bottom its moves there. like if given bottm it moves to bottom of the browser. where footer lies. the SECOND quality of it is if set to 0px it stays on screen whether scrolled down or up. for navbar
+sticky: works as relative and fixed. it moves up down left right according to value and get sticked to its original place
+
+*/
+
+/*
+z index: if something is over lapping and you want to put sumthing above the other you just put higher value like 1 2 3 or you can do it in negative -1 -2 etc according to the need
+*/
+
+/*UNSPLASH FOR BACKGROUND IMAGES*/
+
+
+#flexbox{
+    height: 600px;
+    width: 400px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    align-content: center;
+    align-items: center;
+    
+
+
+
+
+}
+.playground{
+    text-align: center;
+    display: inline-block;
+    border: 2px solid black;
+
+}
+
+#flexbox1{
+    height: 200px;
+    width: 100px;
+    background-color: aqua;
+
+}
+
+#flexbox2{
+    height: 75px;
+    width: 100px;
+    background-color: orange;
+    
+}
+#flexbox3{
+    height: 100px;
+    width: 100px;
+    background-color: pink;
+    align-self: first baseline;
+    
+}
+#flexbox4{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    
+}
+#flexbox5{
+    height: 100px;
+    width: 100px;
+    flex-grow: 2;
+    background-color: yellow;
+    
+}
+
+/* flexbox: its stays in the container we make and adjust in that according to the properties
+dislplay felx starts the container and the children tags properties comes under it
+flex-direction: there are four directions. row, row reverse, coloumn , column reverse. main purpose defined in the terms itself.
+justify content: flex sart flex end center space between, end, etc . These provides more options, and items listed in line stays with sequence, wherelse, in flex direction the direction changed  for eg from left to right so as its sequence also changed.
+flexwrap: controls if there is not enough sace the items move to next coloumn or line
+align items: controls individually items(boxes) to align according to command
+align content: content means as a whole, means everything in container aligns to to its axis as commanded
+align slef: just the idividual adjust its position
+flex grow & shrink: if in a container there is not much space, the items shrink equally, but if we give value to certain property about to grow or shrink, then those items will shrink and grow accordingly, and the rest will be adjust according to the left space. the values used for these are 0 1 2 etc. where 2 means double the amount of shrink or grow
+
+
+*/
+
+#mediaquery{
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+}
+
+@media (width: 600px){
+    #mediaquery{
+        background-color: brown;
+    }
+}
+@media (min-width: 601px){
+    #mediaquery{
+        background-color: green;
+    }
+}
+@media (min-width: 300px)and (max-width:599px){
+    #mediaquery{
+        background-color: yellow;
+    }
+}
+/* media query
+it is used for responsiveness across different devices. few properties could be changed for its responsiveness, like font size, width etc. the way to use it defined upwards
+
+*/
+#button{
+    background-color: yellowgreen;
+    
+}
+#button{ 
+    transition-property:all;
+    transition-duration: 2s;
+    transition-timing-function: steps(5);
+    transition-delay: 2s;
+    rotate:45deg ; /* css transform with property rotate*/
+    transform: scale(2); /* css transform with property scale.fro eg 2 is written it doubled the size of the content x and y axis are height and width, so    you can change it as well width comes first height value later*/
+
+}
+#button:hover{
+        background-color: red;
+        font-size: 20px;
+        rotate: 360deg;
+        transform: translateX(50px);/* translate moves the direction along axis negative or positive. you can use it hover as well as without it. if the content is attached or near the edges of browser it can also move out of site because of the value set in px*/
+          /*transform: rotate(90deg) scale(1.2) translateX(30px) skewX(30deg);*/
+
+        transform: skew(20deg);
+       
+
+    }
+
+    /*hover and transition
+    hover and trasition goes with eachother, both terms meaning are deined in their names
+    it does not apply to parent or child, it applies on element itself
+    there are different functions as stated above, and there are else, which coulkd be explored with time.
+    hover and transition both should be written separately
+    transition shorthand: property name duration timking function delay. easy way.
+
+    */
+    /*transform explaination is upwards*/
+
+    #animation{
+    background-color: yellowgreen;
+    height: 100px;
+    width: 100px;
+    border: 10px solid black; 
+    border-radius: 50%;
+    position: relative;
+    top: 100px;
+    left:100px;
+    border-top:10px solid purple ; 
+    animation-name: coloranimate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+    animation-direction: alternate-reverse;
+    }
+     @keyframes coloranimate{
+    0%{
+        transform: rotate(0deg);
+       left: 0px;
+        background-color: red; 
+    }
+
+    50%{
+        top: 200px;
+        background-color: orange;
+        
+    }
+    100%{
+        transform: rotate(360deg);
+        left: 200px;
+        background-color: blue;
+    }
+}/* alternate way to do it in % form you can set 100 values from 0 to 100, but i this example we have used just 3 of it*/
+
+
+
+
+/*@keyframes coloranimate{
+    from{
+        left: 0px;
+        background-color: red;
+    }
+    to{
+        left: 200px;
+        background-color: blue;
+    }
+}*/
+
+/* animation is like transition  
+it has some properties like, anmation duration,delay, iteration etc some of which are used upwards
+its starts with @keyframes then you name it, then set from and to
+then you use the name of the property in ANIMATION-NAME to connect them
+*/
+
+
+
