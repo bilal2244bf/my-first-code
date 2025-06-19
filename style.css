@@ -1,9 +1,38 @@
-/**/
+
 *{
     margin: 0;
     padding: 0;
-    color: black;
+    color: green;
+    background-color: white;
 }
+p {
+    text-align: right;
+    color: red;
+}
+pre{
+    text-align: center;
+    text-decoration:line-through; 
+} /* alot of options in decoration according to the need, if we right color with the value we could change the color of the line */
+
+button{
+    color:#0000ff;
+    background-color: darkblue;
+}
+/* 00 to ff 00 is 0 ff is 255, easy way to write colors , like the ratio is set upwards,( cooler.co )  for color selection  */
+
+body{
+    background-color: rgb(249, 245, 245); 
+}  
+/* 0 to 255 colors could be selected , like the ratio is set upwards */
+pre {
+
+}
+#divid {
+
+background-color: rgb(83, 4, 83);
+}
+/**/
+
 #h1{
     font-weight: bolder;
 }
