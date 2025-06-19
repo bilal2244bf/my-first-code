@@ -1,4 +1,7 @@
-
+/*like tags these are called syntax and inside are its property and value which goes with:;*/
+/* group selector: eg h1, p ,div. thats how it works
+child selector: ul>li , targets child inside ul
+*/
 *{
     margin: 0;
     padding: 0;
@@ -59,9 +62,9 @@ background-color: rgb(83, 4, 83);
 
 /*hear starts level 2*/
 /* properties like
-padding: the area left around the content
+padding: the area left around the content, adds space inside the border between content and border
 height and width: the main area of the content , blue area
-margin: distance between 2 contents the orange area
+margin: distance between 2 contents the orange area, adds space outside the border
 border: the outer line to block the content and margin
 example is like a box and its inside content like for eg LED
 */
@@ -80,13 +83,15 @@ margin: 50px 50px 50px 100px;
 
 }
 /* text lign stays in center because border was solid*/
-/* to circle the box we use BORDER RADIUS, IF HEIGHT WIDTH IS SAMe we use 50% in border radius to make it full circle , */
+/* to circle the box we use BORDER radius, IF HEIGHT WIDTH IS SAMe we use 50% in border radius to make it full circle , */
 /*in orer to do padding from all sides you just move clockwise and write all 4 of pedding as in upper example, the same goes with MARGIN*/
 #span1{
 height: 100px;
 width: 50px;
 display: inline-block;
 background-color: aqua;
+padding: 25px 25px 25px 25px;
+margin: 50px 50px 50px 100px;
 }
 /*inline block changed the size of span, nothing ese changes it*/
 
@@ -123,9 +128,11 @@ a {
  inline:stays in same line, does not cover extra area
   block:covers extra area
    inline-block: covers all sides of margin padding with single command like 50px
-   none: if used it removes the data and leaves the space for the other content to take its place
+   none: if used it removes the data and leaves the space for the other content to take its place. usually fo navbar
    */
-/* alpha chanel: used with rgb as rgba whose value is between 0 to 1, like 0.25,0.35 etc.  it lights or darks the color*/
+/* alpha chanel: used with rgb as rgba whose value is between 0 to 1, like 0.25,0.35 etc.  it lights or darks the color
+opacity: similar but little different to alpha channel. it covers entire element including text, background, borders, children. alpha channel just cover background color
+*/
    /*visiibilty:none, it obly disappears the content but not its place, the place stays intact*/
 
 
@@ -143,9 +150,9 @@ a {
    /* these are relative units
    unit: 
    %: is used as a child of parent tag. if for example the value of width height margin etc is set to 100px or somelse, then we can set the child tag value with % in relation to parent tag for example parent tag is 100px with % we write 50% it sets to 50% of parents size
-   em: it can be set the same like 1em  or double 2em, or according to the need but some properties maintain  their own size of em and not dependent on parent size
+   em: it can be set the same like 1em  or double 2em, or according to the need but some properties maintain  their own size of em and not dependent on parent size(fontsize, padding, margin)
    rem: root em. default html settings eg font size etc
-   vh & vw: viewort height & width could take whole space of browser window. 1-100 can be used.
+   vh & vw: viewort height & width could take whole space of browser window. 1-100 can be used. it is used in responsiveness across different devices. fills the screen according to the need
     */
 
 
@@ -164,7 +171,6 @@ a {
 }
 #box1{
     position: static;
-    z-index: 1;
     background-image: url("sample photo.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -174,13 +180,14 @@ a {
           /* back ground image put in same folder as html file, change size to fit pic according to need*/
 #box2{
     position: relative;
-    top: 20px;
-    right: 20px;
-    z-index: -3;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
 }
 #box3{
     position: absolute;
-    top: 20px;
+    top: 50px;
+    left: 50px;
 }
 #box4{
     position: fixed;
@@ -196,8 +203,8 @@ a {
 
 /* positions
 static: stays same no top right left property changes it. z index not apply here
-relative: it moves from its its original place to top bottom right left, we just have to set its value in px
-absolute: its moves to its ancestral tag which is normally body tag then it coud be others .the nearest one positions it 
+relative: it moves from its its original place to top bottom right left, we just have to set its value in px. but the space on which it was standing stays intact. nothing covers it. its eg is like if you hvae made navbar etc and you some content from it to some place, then you use it
+absolute: it needs its parent tag and that contains poistion: relative , to move absolute on its own place with your top left right bottm command. the sample code written upwards did not specify that parent which was suppsed to be position: absolute. thats why it has moved up
 fixed: if given any property of right left top bottom its moves there. like if given bottm it moves to bottom of the browser. where footer lies. the SECOND quality of it is if set to 0px it stays on screen whether scrolled down or up. for navbar
 sticky: works as relative and fixed. it moves up down left right according to value and get sticked to its original place
 
@@ -310,12 +317,12 @@ it is used for responsiveness across different devices. few properties could be 
     
 }
 #button{ 
-    transition-property:all;
+    transition-property:all;/*apply transition to every css property that changes on this element*/
     transition-duration: 2s;
     transition-timing-function: steps(5);
     transition-delay: 2s;
     rotate:45deg ; /* css transform with property rotate*/
-    transform: scale(2); /* css transform with property scale.fro eg 2 is written it doubled the size of the content x and y axis are height and width, so    you can change it as well width comes first height value later*/
+    transform: scale(2); /* css transform with property scale.for eg 2 is written it doubled the size of the content x and y axis are height and width, so    you can change it as well width comes first height value later*/
 
 }
 #button:hover{
@@ -325,7 +332,7 @@ it is used for responsiveness across different devices. few properties could be 
         transform: translateX(50px);/* translate moves the direction along axis negative or positive. you can use it hover as well as without it. if the content is attached or near the edges of browser it can also move out of site because of the value set in px*/
           /*transform: rotate(90deg) scale(1.2) translateX(30px) skewX(30deg);*/
 
-        transform: skew(20deg);
+        transform: skew(20deg);/*tilt the box, like the button is tilt in webpage*/
        
 
     }

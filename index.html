@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> <!-- link means its an external file. Rel means what type of file it is for example css stylesheet. Href tells the location of the file-->
-    <title>Document</title>
+        <title>my name is bilal</title>
+
 </head>
+<!-- put other pages anchor tags in each sections area like , pages which are gonna open from header section put those anchor tags in that section , same goes for main and footer-->
+ <!-- to connect all pages of html give them different name them index.html then in the header section add <nav> tag and use anchor tag and write href  for eg <a href="about.html"> about</a>-->
 <body>
 
       <header></header>
-    <title>my name is bilal</title>
     <div id="divid">
     <p  > dddddddddddddddd nn                             ddddddddddddddddddd   ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, dolorem? Doloribus dolor consectetur tempora voluptate dolorum ut eveniet doloremque, tempore minima magnam tenetur asperiores accusantium ipsum beatae, eum reprehenderit. Rem!
     Dolor consequuntur nesciunt quaerat? Quam pariatur, accusamus, ratione laboriosam, vitae dignissimos accusantium quas rerum illum ad assumenda. Cupiditate optio, nobis voluptates ipsa possimus officiis iusto ea voluptate deserunt eius facilis!
@@ -24,8 +26,16 @@
     <pre>my                   name is              bilal</pre>
     <h1>jjcjs</h1>
     <h6>jdajdjad</h6>
-    <a href="https://react-native.en.softonic.com/" target="_main"> the bilal </a>
-        <header><h1>bdhshcbs</h1></header>
+    <a href="https://react-native.en.softonic.com/" target="_blank"> the bilal </a><!-- target attribute values 
+    self, open links in same page
+    blank,open link in new tab
+    parent, open in parent frame(that holds the  iframes)
+    top, open in top frame. open link full browser window(removes all frames)
+
+    -->
+        <header><h1>bdhshcbs</h1></header> <!--h1 and mian tag should be used once per page
+        main is the center part and everythhing normally should come init it like the the tags article and section
+        -->
     <i> italic </i>
     <br>
 
@@ -36,7 +46,7 @@
      <br>
      <small>this is small</small>
      <hr>
-     <big>this is big text</big>
+     <big>this is big text</big> <!--bit not used now a days, small uses for disclaimers-->
      <br>
      <img src="https://milligram.com/collections/notebooks" alt="milligram link" height="100" width="200" >
      <p>h<sub>2</sub>o   a<sup>2</sup>+b<sup>2</sup></p>
@@ -60,14 +70,17 @@
 
      <form>
         <input type="text" placeholder="the text shows in the box of type=text">
-        <br>
+        <br> <!-- there are other options of type, like email, number, submit etc-->
+        <!-- value attribute is data behind it which is connected with JS
+         name attribue combines the whole group like a class but it is used in input -->
         <input type="password" placeholder=" same as above, but as it is password it shows in dotted form">
         <br>
 
         <input type="radio" value="class 11" name="class"> class 11
-        <input type="radio" value="class 12" name="class 1"> class 12
+        <input type="radio" value="class 12" name="class"> class 12
 
         <input type="checkbox" value="maths" name="class" id="1" > maths
+        <!-- label is to click on text to mark the checkbox. to connect label with input, you need for in label and id in input. give for and id same name to connect label and input -->
         <label for="2"> 
         <input type="checkbox" value="phy" name="class" id="2" > phy
         </label>
@@ -103,7 +116,7 @@
 <iframe   width="560" height="315"  src="https://www.wikipedia.org/" frameborder="0"></iframe>
 
 
-<video  width="560" height="315"  src="https://www.youtube.com/embed/CosNsUVkNjg?si=ky19sd0y8FF1Jpyb" controls loop ></video>
+<video  width="560" height="315"  src="https://www.youtube.com/embed/CosNsUVkNjg?si=ky19sd0y8FF1Jpyb" controls loop ></video><!-- type attribute in video means the type of file whether mp4 etc. controls means pause play etc-->
 
 <br><br>
 <table>
