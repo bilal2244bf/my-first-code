@@ -480,3 +480,218 @@ let factorial = arr1. reduce((res, curr) =>{
 return res * curr;
 }) ;
 console. log("factorial = ", factorial);
+
+//___________________________________________________________________________________________________
+
+// chapter: 6 DOM( document object model) manipulation
+/* EXPLANATION: basically the page is static, and we can make the changes without it being refreshed, for eg shopping cart if user updating its cart the static page built by coder gets changed beaccuse of the dom manipulation/code.
+the selectors like ids, class, tags can only be accessed in dom and would be used with other javascript concepts like loops, condition statements etc
+*/
+
+/*Selecting with id
+document.getElementByld("myld")
+
+Selecting with class
+document.getElementsByClassName("myClass")
+
+Selecting with tag
+document.getElementsByTagName("p")*/
+
+let heading = document. getElementById ("animation"); 
+console.dir (heading);
+console.log (heading);
+
+let headings = document-getElementsByClassName ("playground");
+console.dir (headings); 
+console. log (headings);// example of how id , class and tags can be used, you just need to write names you have given to the your structure through selectors. for tags you write certain tag like h1 and it will open all h1 files
+
+/*Query Selector
+document.querySelector("myld / myClass / tag")
+returns first element
+document.querySelectorAll("myld / myClass / tag")
+returns a NodeList */
+
+let firstEl = document. querySelector(".box1"); 
+console-dir(firstEl);//1st element. you can choose any selector whether tag class, id. but you have to write .before class name and # before id name
+
+let allEl = document. querySelectorAll("#flexbox"); 
+console.dir(allEl);//all elements. it selectes all elements of selected selector
+
+/*
+Properties: for example the property tagName. the second words first letter always stays capital, so that no error comes. you just have to write element or variable name.tagname , other property names etc to get the result. its written in console in browser. 
+concept of first & last child for example there are are multiple tags inside parent tag, then we can them by this way as well
+
+• tagName: returns tag for element nodes
+• innerText: returns the text content of the element and all its children. parent nodes, child nodes(which are inside some tags). third type is sibling, the tags on same levels. shows text inside tags parent to children all
+• innerHTML : returns the plain text or HTML contents in the element. shows text as well as tags 
+• textContent: returns textual content even for hidden elements. if some is hidden in text then it shows that as well.
+ */
+
+// examples
+/*1.
+let h2 = document. querySelector ("h2");
+console dir(h2.innerText);
+h2. innerText = h2. innerText + " from Apna College students';
+what happened here is we can change the text as well as add more text beside it , with the way given upwards
+ */
+/*2.
+let
+divs = document.querySelectorAll(".box");
+divs [0]. innerText = "new unique value 1";
+divs [1]. innerText = "new unique value 2";
+divs [2] . innerText = "new unique value 3";
+we used class and with the help of indices changed their values.
+indices practical use.
+another way to do it using lopes to ease to process instead of ,for example we want to add 100 lines, writing 100 lines that we want to change.
+*/
+/*3.
+let divs= document-querySelectorAll(".box");
+let idx= 1;
+for (div of divs){
+div.innerText = `new unique value ${idx}`;
+idx++;
+}
+this does the same thing in simple way
+ */
+
+
+
+// Attributes & Style in JS
+/*
+Attributes
+• getAttribute( attr ) to get the attribute value
+• setAttribute( attr, value ) to set the attribute val th
+
+Style
+• node.style: the way to write it is like this first in the place of node choose your node like div, p,h1, button etc.
+in css you write like background-color, in js you write it like backgroundColor. it goes for every property. no - and second words first letter capital
+ */
+// EXAMPLES
+/*1.
+let div = document querySelector("div");
+console. log (div);
+let id = div.getAttribute("id"):
+console. Log (id);
+
+gets any attribute value/name, first you have to use queryselector
+*/
+/*2.
+let para= document-querySelector ("p"); //p for paragraphy selected in queryselector
+console. log(para.setAttribute("class","newClass"));
+
+to change the value of attribute you write it like this
+*/
+/*3.style.node
+let div = document. querySelector("div");
+div.style.backgroundColor = "green" ; // here div is node
+*/
+
+
+// Insert & Delete elements: it has to steps befpre adding or removing elements, you have to create element , whether paragraph button etc
+/*
+Insert Elements
+let el = document.createElement("div")
+• node.append( el ) adds at the end of node (inside)
+• node.prepend(el) adds at the start of node (inside)
+• node.before(el ) adds before the node (outside)
+• node.after(el) adds after the node (outside)
+Delete Element
+• node.remove() removes the node
+*/
+//EXAMPLE: apply to all of the abover insert elements
+/*
+let newBtn = document. createElement ("button");
+newBtn. innerText = "click me!"; // first step
+console. log (newBtn);
+
+let div = document.querySelector ("div");
+div.append (newBtn) ; // second step: where the place of the new element defines
+*/
+/* delete element example
+let para = document. querySelector("p");
+para.remove () ;
+*/
+
+
+
+//______________________________________________________________________________________________________
+
+//chapter:7 events
+/*Events in JS
+The change in the state of an object is known as an Event
+Events are fired to notify code of "interesting changes" that may affect code execution.
+• Mouse events (click, double click etc.)
+• Keyboard events (keypress, keyup, keydown)
+• Form events (submit etc.)
+• Print event & many more
+*/
+/*Event Handling in JS
+btn.onclick// before dot is node and after is event. we can researech for specific events for mouse keyboards etc, in MDN. for eg there are hover and double click events for mouse
+node.event = () => {
+//handle here
+*/
+/*example
+let btn1 = document. querySelector("#btn1");
+btn1.onclick =()=> {
+console. log ("btn1 was clicked"):
+Let a = 25;
+a++;
+console. log (a); //26
+*/
+
+/*Event Object
+these are access the details about event handles like mentioned there type, target, position and many more
+It is a special object that has details about the event.
+All event handlers have access to the Event Object's properties and methods.
+node.event = (e) => {
+//handle here
+}
+e.target, e.type, e.clientX, e.clientY
+*/
+//example
+/*
+let btn = document. querySelector ("#btn1");
+btl. onclick = (evt) => {
+console. log (evt);
+console. log (evt. type); 
+console. log (evt.target);
+console. log(evt.clientX, evt.clientY);
+};
+*/
+
+/*Event Listeners: we can  make multiple works on same event. event object can also be accessed through it
+node.addEventListener ( event, callback)
+node.removeEventListener( event, callback)
+*Note: the callback reference should be same to remove
+*/
+// EXAMPLE
+/*
+btn1. addEventListener ("click", (evt) => {
+console. log ("buttoni was clicked");
+console. log (evt);
+console. log (evt. type);
+}）；
+btn1. addEventListener ("click", () => {
+console. log("buttoni was clicked - handler2");
+}) ;
+*/
+
+/*dark light mode EXAMPLE
+let modeBtn = document querySelector ("#mode");
+let currMode = "light"; //dark
+modeBtn.addEventListener("click", () => {
+if (currMode === "light") {
+currMode = "dark";
+document. querySelector ("body"). style. backgroundColor = "black";
+} else {
+currMode = "light";
+document. querySelector ("body"). style. backgroundColor = "white";
+}
+console. log (currMode) ;
+});
+*/
+
+//___________________________________________________________________________________________________
+
+
+
