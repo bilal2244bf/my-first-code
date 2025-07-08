@@ -2,32 +2,32 @@ console.log("javascript is connected!");
 // ES6: NEW VERSION introduced in JS after 2015, which introduced new features, like var is replaced by let & const
 
 //chapter1: variables and types of data
-// three types of variables, var: can be updated and used with same name property(global scope variable) let: can be updated but can't use same property names, only one property name. const: can't be re-decalred like let but also can't be upadted . its gonna stay constant. let & const are (block scope variables. blocks are curly braces {}). downwards there are examples
+// three types of variables, var: can be updated and used with same name property(global scope variable) let: can be updated but can't use same property names, only one property name. const: can't be re-decalred like let but also can't be updated . its gonna stay constant. let & const are (block scope variables. blocks are curly braces {}). downwards there are examples
 
 let name="bilal farooq";
 name= "ayesha";
-name="zaviyar"; // if used with with same property name it gives you error
+name="zaviyar"; // if used with with same property name it gives you error, but only if let is used, without let the latest variable with same would give value
 
 const age=29; // now there is age 30 written downwards, now it has given error we went for the output in console.log
 //age=30 // any name could be given variable eg a bc d e , bilal, zaviyar
-let x=null; // these examples before console.log are called assignement operator which saves value of after = which is string value to before equal which is VARIABLE
+let x=null; // null: intentional absence of any value. these examples before console.log are called assignement operator which saves value of after = which is string value to before equal which is VARIABLE
 let y=undefined;
 let price=100;  // avoid sapcing in giving variable names and if apple and APPLE are given the name, then both have different storage and meaning, only letters, digits, _ and $ is allowed in giving name and letter underscore_ and $ should be the first character if using
 //reserved words like console and log etc cant not be used as variable names
-let isFollow=true; //boolean is just true or falue value //convention: not rule, but good if used if using two words like fullname, then first word needs to be stay small, second words first ellter needs to be capital like, fullName
+let isFollow=true; //isfollow: in iself we can name the variable with any name, but coders usually write it like this, we can name it whatever we like, but the value of it it which is true or false matters, which is written without inverted commas. Boolean is just true or falue value //convention: not rule, but good if used if using two words like fullname, then first word needs to be stay small, second words first ellter needs to be capital like, fullName
  console.log(name);
 
 // data types: primitive(7 types:number: which has some numbers, string: which contain the value in letter lik( my name is bilal), boolean: isFollow(true or false), undefined:  for eg let x; which conatins no value or property is not defined ,null ,bigint, symbol)
 
 let a = BigInt("123");
-console.log(a); 
+console.log(a); // just writes n with thevalue. functionality would be defined in practical
 
 let b= Symbol("bilal");
-console.log(b);
+console.log(b); // basically you can assign same values, but with different variable, for different purposes. thats why we use symbol for same values and different key/variable.
 
 //non primitive data types: objects( it is a collection of values, if we want save multiple values) these have two further sub categories: arrays & functions
 
-/* EXAMPLE pf upper cpncept
+/* EXAMPLE of upper cpncept
 students
 name bilal  string
 age 30    number
@@ -46,7 +46,8 @@ console.log(student.age);
 // we can not change const value but inside object we can change the value of its content which is called mutation 
 student["age"]+=1;
 student["fullName"]="bilal zaviyar";
-console.log(student);
+console.log(student);// bassically the age given in the object in upper example is increased with this way by 1. so basically we can change anything inside object with this way. the upper example is in const, so we cant change its value, but if its an object we can change it. so thats the way to change it.
+//inside object the thigs are called properties or keys. so inside objeacts they are treated as property names
 
 
 //_______________________________________________________________________________________________________
@@ -122,17 +123,17 @@ if(Age<18){
 // so the mode value is set to light, but we are giving mode value equal to dark in if, the vlaue was set to light, so we used else, if it is not true, it would switch to else statement. if for example we have used mode value to blue , it would have switched to else beacuse else is used and that would have to switch to else statement. else always comes at the end of condition statements
 //else doesnot contain any condition beacuse its the final output without condition
 let mode="light";
-let color; // color is used with no value or you cpuld say variable with no value means its gonna be used inside the condition statements to assign certain value in that particalur conditon statement
+let Color; // color is used with no value or you cpuld say variable with no value means its gonna be used inside the condition statements to assign certain value in that particalur conditon statement
 if(mode==="dark"){
-    color="black";
+    Color="black";
 } //=== should be preferably used beacuse it also asses the data type. both == & === means equal but === asses data type as well. so in JS its prefereed to be used for safe side for errors
 else{
-    color="white";
+    Color="white";
 }
-console.log(color); // console.log inside if you are using inside without inverted commas the vlaue will print and if  inverted commas are used  that particular word which is being written would be printed
+console.log(Color); // console.log inside if you are using inside without inverted commas the vlaue will print and if  inverted commas are used  that particular word which is being written would be printed
 
 //else if example
-// else if used when you want to check more than 2 statement  conditons. these are because in if and else , we canuse them fro 2 statements, but if we add else if, which is always used after if and before else, it can be used as many times as we want
+// else if used when you want to check more than 2 statement  conditons. these are because in if and else , we canuse them for 2 statements, but if we add else if, which is always used after if and before else, it can be used as many times as we want
 
 let Mode="light";
 let color;
@@ -219,9 +220,9 @@ do{
 }while(N<=20);// so the value of N is 20, its gonna run once, then it gets to condition and condition is false, beacuse N is smaller than 20 in condition. so it stops there.
 
 // for-of loop: it helps in looping on strings and arrays,sets, maps which are data types
-let str="Javascript";
+let hamza="Javascript";
 let size=0;
-for(let b of str ){
+for(let b of hamza ){
     console.log(b, "b");
     size++;
 }
@@ -281,7 +282,7 @@ console.log(str);
 //_____________________________________________________________________________________________________
 
 
-//chapter 4: Arrays: collection of item. object is also collection of items. linear way to store info. array in itself is an object, a special kind. it goes in suare brackets[]
+//chapter 4: Arrays: collection of item. object is also collection of items. linear way to store info. array in itself is an object, a special kind. it goes in sqare brackets[]
 //example
 
 let marks=[
