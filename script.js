@@ -277,7 +277,7 @@ console.log(part); // "Java" if you use minus it will start the counting from th
 let str="ayesha bilal";
 str=str.toUpperCase();
 console.log(str);
-//javascript strings are immutable, means the capital or small letters dont change. old string does not change you have to make new string, like we did upwards in UpperCase example
+//javascript strings are immutable, means the capital or small letters dont change. old string does not change you have to make new string, like we did upwards in UpperCase example.
 
 //_____________________________________________________________________________________________________
 
