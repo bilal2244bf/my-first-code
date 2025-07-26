@@ -740,6 +740,95 @@ let myObj = new MyClass() ;
 */
 
 //example
-/*
+class ToyotaCar {
+ start ( ){
+ console. log ("start");
+ }
+ stop () {
+ console. log ("stop");
+   }
+ setBrand (brand) {
+ this. brandName = brand;
+   }
+}
+let fortuner = new ToyotaCar();
+fortuner. setBrand ("fortuner");
+let lexus = new ToyotaCar();
+lexus.setBrand("lexus");
 
+
+/*Constructor() method is :               class MyClass {
+
+• automatically invoked by new      constructor () {... }
+• initializes object                myMethod() {...}
 */
+
+
+/*Inheritance in JS
+inheritance is passing down properties & methods from parent class to child class.
+class Parent {
+}
+class Child extends Parent {
+}
+
+*If Child & Parent have same method, child's method will be used. [Method Overriding]
+*/
+
+//EXAMPLE
+class Person {
+eat (){
+ console. log ("eat");
+ }
+ sleep ( ){
+ console. log ("sleep");
+ }
+}
+ class Engineer extends Person {
+work() {
+console. log ("solve problems, build something");
+}
+}
+let shradhaObj = new Engineer ();
+// this is the way, if you make a class and you want to pass it on its functions to other classes, rather than writing all of it again you simply use that EXTENDS code. then at the the we have made a variable with the name of shradhaobj, so basically we can pass the functions and value in this way as well, to new variables.
+
+/*super Keyword
+The super keyword is used to call the constructor of its parent class to access the parent's properties and methods.
+super(args) // calls Parent's constructor
+super.parentMethod (args )
+ */
+//EXAMPLE
+class Persons{
+  constructor (){
+  console. log("enter parent constructor");
+  this. species = "homo sapiens";
+  }
+  eat () {
+  console. log ("eat");
+  }
+}
+class Engineer extends Persons {
+ constructor (branch) {
+ console. log("enter child constructor");
+ super ();    //toinvoke parent class constructor
+ this. branch = branch;
+ console. log ("exit child constructor");
+ }
+ work () {
+ console. log ("solve problems, build something");
+ }
+}
+let engObj = new Engineer ("chemical engg");
+//so the variable is startng from the bottom, which in engobj. now that takes it to engineer class, and inside engineer SUPER is called which takes to parents constructor/ methods, after getting data from there it exits through engineer remaining function.
+
+
+/*
+Error Handling: you just write the code inside try which you could have error, then you write catch, and if there is any error, it will tell you.
+try-catch
+try {
+[... normal code ]
+} catch (err) { //err is error object
+... handling error
+}
+ */
+
+
