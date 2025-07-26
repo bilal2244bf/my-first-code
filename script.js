@@ -295,8 +295,8 @@ console.log(marks[0]=66);
 // itrrables(strings(collection of characters), objects(collection of key values), arrays(collection of similar type of items collection)): are those items on which we can apply loop
 // example: how it easily count and shows the values of indices in loop
 let heroes= ["ironman", "thor", "hulk", "shaktiman", "spiderman" , "antman"];
-for (let idx = 0; idx & heroes. length; idx++) {
-console. log (heroes [idx]);
+for (let idx = 0; idx < heroes. length; idx++) {
+    console.log(`index ${idx} = ${heroes[idx]}`)
 }
 //another way to do it
 let Heroes= ["ironman", "thor", "hulk", "shaktiman", "spiderman" , "antman"];
@@ -322,14 +322,14 @@ let Items = [250, 645, 300, 900, 501];
  let i = 0;
  for (let val of Items) {
  let offer = val / 10;
- items[il = items[il - offer;
- console. log('value after offer = ${Items[il}');
- i++;  // a way to do th practise question through for-of loop
+ items[i] = items[i] - offer;
+ console. log('value after offer = ${Items[i]}');
+ i++;  // a way to do the practise question through for-of loop
 }*/
 let Items = [250, 645, 300, 900, 501];
 for (let i = 0; i < Items.length; i++) {
 let offer = Items[i] / 10;
-Items [i]-= offer;
+Items [i]-= offer;// another way of writing items= items-offer
 }
 console. log (Items) ;// solved using just for loop(10% discount practise question)
 
@@ -344,8 +344,8 @@ console. log (foodItems) ;
 
 //Pop() : delete from end & return: example
 let FoodItems = ["potato", "apple", "litchi", "tomato"];
-let deletedItem = FoodItems-pop ();
-console. log (FoodItems);
+let deletedItem = FoodItems.pop ();
+console. log (FoodItems);  
 console. log ("deleted", deletedItem) ;
 
 //toString() : converts array to string: example
@@ -397,11 +397,14 @@ let arr = [1, 2, 3, 4, 5, 6, 7];
  //Functions: Block of code that performs a specific task, can be invoked whenever needed
  // function definition & function call: first we have to make/define our function then we call it to perform that function. function can be clll multiple times, so that also means what ever function we made in our definition, its gonna perform that function as mnay times as we want
 
-function sum (x, y){
+ // CLEAR EXPLANATION OF FUNCTION: if we want to for example run multipe things like subtraction, addition, multiplacation through operators, just an example, then we use function to set the parameters then inside curly brackets pass those instructions like given in the lower example s=x+y, that could be multiplication subtraction, anything. it would become easy. then to return the value, we can return multiple values but the way is, like if s=x+y, then  we are writing return s, for multiple return, we could write return { s,a,c, etc} whatever we named the variable inside the brackets for instructions use.
+
+
+function sum (x, y){ // we have to write word function to define function then we name the fuction like its given in the name of "sum", the brackets after it are "parameters/ inputs to function", the curly brackets contains the instructions of the function. 
    s = x+y;
-  return s;
+  return s;// return is the value, when the fucntion is called it gives the value
 }
-let varible = sum (3, 4) ;
+let varible = sum (3, 4) ;// outside the function we call it like this, which then gives the value
 console. log (val);// so whats happening is we named the function sum and put parameters or values on which its gonna work. so we wanted to add x y so we used operator, the used RETURN, return is what is used to call the function outside curly braces.
 // one job function is if we want to reuse something, avoidng to write code again
 
@@ -413,8 +416,7 @@ console. log(a * b);
 function countVowels (str) {
    let count = 0;
    for (const char of str) {
-   if (
- char==="a"|| char==="e"|| char==="i"|| char==="o"||char==="u")
+   if (char==="a"|| char==="e"|| char==="i"|| char==="o"||char==="u")
    {
     count++;
     }
@@ -445,7 +447,7 @@ console. log (newArr);
 //filter method
 /* Creates a new array of elements that give true for a condition/filter.
 Eg: all even elements */
-// example
+// example. its more difficul and lengthy  to filter in loops by setting conditions. its a simple way. and arrow function is used to consize the length, otherwise could be done with normal function
 let
 array = [1, 2, 3, 4, 5, 6, 7];
 let evenArr = array. filter ((val) => {
@@ -480,7 +482,7 @@ console. log (sum) ;
 let factorial = arr1. reduce((res, curr) =>{
 return res * curr;
 }) ;
-console. log("factorial = ", factorial);
+console. log("factorial = ", factorial);// factorial is muliplication
 
 //___________________________________________________________________________________________________
 
@@ -520,7 +522,7 @@ console.dir(allEl);//all elements. it selectes all elements of selected selector
 
 /*
 Properties: for example the property tagName. the second words first letter always stays capital, so that no error comes. you just have to write element or variable name.tagname , other property names etc to get the result. its written in console in browser. 
-concept of first & last child for example there are are multiple tags inside parent tag, then we can them by this way as well
+concept of first & last child for example there are multiple tags inside parent tag, then we can them by this way as well
 
 • tagName: returns tag for element nodes
 • innerText: returns the text content of the element and all its children. parent nodes, child nodes(which are inside some tags). third type is sibling, the tags on same levels. shows text inside tags parent to children all
@@ -588,7 +590,7 @@ div.style.backgroundColor = "green" ; // here div is node
 */
 
 
-// Insert & Delete elements: it has to steps befpre adding or removing elements, you have to create element , whether paragraph button etc
+// Insert & Delete elements: it has two steps before adding or removing elements, you have to create element , whether paragraph button etc
 /*
 Insert Elements
 let el = document.createElement("div")
@@ -641,13 +643,16 @@ console. log (a); //26
 */
 
 /*Event Object
-these are access the details about event handles like mentioned there type, target, position and many more
+these access the details about event handles like mentioned there type, target, position and many more
 It is a special object that has details about the event.
 All event handlers have access to the Event Object's properties and methods.
 node.event = (e) => {
 //handle here
 }
-e.target, e.type, e.clientX, e.clientY
+e.target: like which html tag or node
+e.type: whether it was a click, keydown, mouseover, submit etc
+ e.clientX: distance from left edge
+ e.clientY: distance from top edge
 */
 //example
 /*
@@ -694,5 +699,47 @@ console. log (currMode) ;
 
 //___________________________________________________________________________________________________
 
+//Chapter 8: Classes & Objects
+/*Prototypes in JS
+A javaScript object is an entity having state and behavior (properties and method).
+JS objects have a special property called prototype.
+We can set prototype using - - proto _-
+*If object & prototype have same method, object's method will be used. method is what we could call here function etc
+*/
+//example
+const studentss={
+fullName: "shradha khapra",
+marks:94.4,
+printMarks: function (){
+console. log ("marks = ", this.marks);// here "this" is used , which is like an attribute, to point to specific property and give value.
+},
+};// basically we made an object, and we are calling a function in it. its the simple and most common way to make an object
+
+//Example 2: prototype explanation
+const employee = {
+ calcTax(){
+ console.log("tax rate is 10%");
+  },
+};
+const karanArjun={
+ salary: 50000,
+};
+
+karanArjun.__proto__= employee;
+// explanation of the example:  where we made variable employee, inside {} we used funcion with the name calctax, which is function name, another way to write the function without word function. second we made another variable with the name karanarjun, we used the employee function ,with the help of prototpye , for other object which is karanarjun. the way to write is __proto__. so if you wanna use same function for different objects thats the way. if some object has its own function, and we are also giving it prototype, then  by default the object  will use the function written inside its object.
 
 
+/*Classes in JS
+Class is a program-code template for creating objects.
+Those objects will have some state (variables) & some behaviour (functions) inside it.
+class MyClass {
+constructor() {... }
+myMethod() {...}
+}
+let myObj = new MyClass() ;
+*/
+
+//example
+/*
+
+*/
