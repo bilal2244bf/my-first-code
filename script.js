@@ -831,4 +831,188 @@ try {
 }
  */
 
+//_____________________________________________________________________
+//chapter 9: callbacks, promises & async-await
+/*Sync in JS
+Synchronous
+Synchronous means the code runs in a particular sequence of instructions given in the program.
+Each instruction waits for the previous instruction to complete its execution.
+Asynchronous
+Due to synchronous programming, sometimes imp instructions get blocked due to some previous instructions, which causes a delay in the Ul.
+Asynchronous code execution allows to execute next instructions immediately and doesn't block the flow*/
+//EXAMPLE
+console.log("start");
+setTimeout(() => {
+  console.log("timeout");
+}, 0);
+console.log("end");
+console.log("one");
+console.log("two");
+//whats happening is, the first line is printed, then setTimeout is called, which is asynchronous, so it does not wait for it to finish, it goes to next line and prints end, then one and two. then after all of that is done, it goes back to setTimeout and prints timeout. so the output would be start, end, one, two, timeout
 
+//callbacks
+/*A callback is a function that is passed as an argument to another function.
+When the other function is executed, it calls the callback function.
+*/
+//EXAMPLE
+function greet(name, callback) {
+  console.log("Hello, " + name);
+  callback();
+}
+greet("Ayesha", () => {
+  console.log("Callback function executed");
+});
+//so the greet function is called, which takes name and callback as parameters, then it prints hello and name, then it calls the callback function which is passed as an argument, and prints the callback function executed. so the output would be Hello, Ayesha and Callback function executed
+//example 2
+function add(a, b, callback) {
+  const sum = a + b;
+  callback(sum);
+}
+function calculator(a, b, sumCallback) {
+  add(a, b, sumCallback);
+}
+calculator(1, 2, (result) => {
+  console.log("Sum:", result);
+});
+//so the add function takes a, b and callback as parameters, it calculates the sum and calls the callback function with the sum as an argument. then the calculator function calls the add function with a, b and sumCallback as arguments. finally, the callback function is called with the result which prints Sum: 3.
+//two functions are compulsory to be used to use the callback function, one is the main function which takes the callback as parameter, and the second is the callback function which is called inside the main function.
+
+
+//callback hell: nested callbacks
+/*When we have multiple nested callbacks, it becomes difficult to read and maintain the code. nested callbaacks stacked below one another froming a pyramid shape, which is called pyramid of doom. 
+//example
+
+function getData(dataId, getNextData) {
+  setTimeout(() => {
+    console.log("data", dataId);
+    if (getNextData) {
+      getNextData();
+    }
+  }, 2000);
+}
+
+// Callback Nesting Example (Callback Hell)
+getData(1, () => {
+  getData(2, () => {
+    getData(3);
+  });
+});
+//so the getData function takes dataId and getNextData as parameters, it simulates fetching data with a timeout, then it prints the dataId and calls the getNextData function if it exists. then we call the getData function with dataId 1, and pass a callback function which calls getData with dataId 2, and so on. this creates a nested structure which is difficult to read and maintain.
+
+//Promises: promise is for eventual completion of task. its an objects in JS. its a solution to callback hell. it has 3 states: pending, fulfilled, rejected. it has function with two parameters resolve and reject. resolve is for success and reject is for failure. then we use .then() for success and .catch() for failure.  pending fullfilled and rejected are the three states of promise. pending is when the promise is not yet resolved or rejected, fulfilled is when the promise is resolved successfully, and rejected is when the promise is rejected with an error.
+static content does not use promise but dynamic does and example is like comments payment gateway etc
+
+//EXAMPLE 
+let promise = new Promise((resolve, reject) => {
+  let a = 1 + 1;
+  if (a == 2) {
+    resolve("success");
+  } else {
+    reject("failed");
+  }
+});
+promises:
+prmise.then((result) => {...})
+promise.catch((error) => {...})
+//EXAMPLE
+promise
+  .then((result) => {
+    console.log("this is in then " + result);
+  })
+  .catch((error) => {
+    console.log("this is in catch " + error);
+  });
+//so the promise is created with a function that takes resolve and reject as parameters, it checks if 1 + 1 is equal to 2, if yes it calls resolve with success, else it calls reject with failed. then we use .then() to handle the success case and .catch() to handle the failure case. so the output would be this is in then success
+
+//promise chaining: we can chain multiple .then() and .catch() methods to handle multiple asynchronous operations in a sequence. each .then() method returns a new promise which can be used to chain another .then() or .catch() method.
+//EXAMPLE
+function asyncFunc1() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data1");
+      resolve("success");
+    }, 4000); // 4 seconds delay
+  });
+}
+
+function asyncFunc2() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data2");
+      resolve("success");
+    }, 4000); // 4 seconds delay
+  });
+}
+
+console.log("fetching data1....");
+
+let p1 = asyncFunc1();
+
+p1.then((res) => {
+  console.log("fetching data2....");
+  let p2 = asyncFunc2();
+
+  p2.then((res) => {
+    console.log("Both async tasks finished successfully!");
+  });
+});
+explanation: the asyncFunc1 and asyncFunc2 functions return a promise that simulates fetching data with a timeout, then it prints the data and calls resolve with success. we call asyncFunc1 and store the promise in p1, then we use .then() to handle the success case, inside it we call asyncFunc2 and store the promise in p2, then we use .then() again to handle the success case of p2. this creates a chain of promises that are executed in sequence. so the output would be fetching data1...., data1, fetching data2...., data2, Both async tasks finished successfully!
+
+
+// VERY IMPORTANT POINTS: 1.RESOLVE AND REJECT ARE RESERVE IDENTIFIERS OR KEYWORDS, WE CANT USE THEM AS VARIABLE NAMES. 
+2.RETURN WORD INSIDE THE FUNCTION IS USED FOR THE INSIDE FUNCTION TO RETURN THE VALUE TO OUTSIDE FUNCTION. SO BASICALLY RETURN IS USED TO PASS THE VALUE FROM INSIDE FUNCTION TO OUTSIDE FUNCTION.
+3. ASYNCHRONOUS MEANS NOT AT THE SAME TIME
+4. PROMISES ARE USED FOR DYNAMIC CONTENT, NOT STATIC CONTENT.
+
+
+
+//async-await: 
+//  always returns a promise. it makes the code look synchronous but it is asynchronous. we use async keyword before the function and await keyword before the promise. it makes the code easier to read and maintain. await makes the function wait for the promise to resolve or reject before moving to the next line of code. it can only be used inside an async function.
+//EXAMPLE
+function getData(dataId) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data", dataId);
+      resolve("success");
+    }, 2000);
+  });
+}
+
+// Async-await
+async function getAllData() {
+  await getData(1);
+  await getData(2);
+  await getData(3);
+  await getData(4);
+  await getData(5);
+  await getData(6);
+}
+
+getAllData();
+
+
+iife: immediately invoked function expression. its a function that is executed immediately after it is defined. it is used to create a new scope and avoid polluting the global scope. it is defined inside parentheses and followed by another set of parentheses to invoke it.
+//EXAMPLE
+(function () {
+  console.log("iife");
+})();
+// so it basically prints iife immediately after it is defined. and it does not wait for any call to execute it. its used to avoid polluting the global scope by creating a new scope for the function.
+
+TAKEAWAYS OF THIS CHAPTER: PROMISES WITH ASYNC AWAIT OR THEN & CATCH, CALLBACKS, IIFE, ARE USED  FOR WHEN THE DATA IS DYNAMIC, NOT STATIC.OR IT IS DELAYED. IT IS ALSO USED FOR USERS TO STORE THEIR DATA, LIKE COMMENTS, PAYMENT GATEWAY ETC. SO BASICALLY THE PARAMETERS ARE WHAT WE JUST USE AS DEFINED AREAS , THOSE PARAMETERS ARE THEN FILLED WITH VALUES WHEN THE FUNCTION IS CALLED. AND FUNCTION IS CALLED IN MANY WAYS, LIKE CALLBACKS, PROMISES, ASYNC AWAIT ETC. SO THESE ARE THE WAYS TO CALL THE FUNCTION. SO THAT WAY FOR EXAMPLE WE MAKE A FUNCTION LIKE , FUNCTION GETDATA(DATAID), SO DATAID IS PARAMETER, THEN WHEN WE CALL IT, WE FILL IT WITH VALUE LIKE GETDATA(1), SO 1 IS THE VALUE. SO THATS HOW IT WORKS. AND THAT 1 IS BASICALLY FILLED BY THE USER, SO THATS WHY IT IS DYNAMIC.
+
+//____________________________________________________________________________________________________
+//chapter 10: fetch API
+/*APIs: Application Programming Interface
+APIs are a set of rules that allow different software applications to communicate with each other.
+fetch api provides  an interface for fetching sending requests and receiving responses over the network.
+it uses requests & responses objects.
+let promise = fetch(url, [options])
+interface: means a middle layer where two systems meet and interact with each other.
+AJAX: Asynchronous JavaScript and XML. it an old method to fetch data from server without refreshing the page. it uses XMLHttpRequest object to send and receive data.
+JSON: JavaScript Object Notation. it is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse(convert) and generate. it is used to exchange data between client and server. json is used so that the date which is coming from backend could be in any language and would be in raaw format, so json is used to convert it into readable format for front end.
+Http verbs: GET, POST, PUT, DELETE etc. these are the methods used to send requests to the server. GET is used to fetch data from the server, POST is used to send data to the server, PUT is used to update data on the server, DELETE is used to delete data from the server.
+response status codes: 200, 404, 500 etc. these are the codes returned by the server to indicate the status of the request. 200 means OK, 404 means Not Found, 500 means Internal Server Error.
+Http response headers: these are the metadata associated with the response. they provide information about the response such as content type, content length, etc. content type is used to indicate the type of data being sent in the response. for example, application/json indicates that the response is in json format. content length is used to indicate the size of the response body in bytes.
+try -catch: it is used to handle errors in the code. 
+response.ok: handles server errors. it is a boolean value that indicates whether the response was successful or not. if the response status code is in the range of 200-299, then response.ok is true, otherwise it is false.
+*/
