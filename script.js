@@ -14,10 +14,10 @@ let x=null; // null: intentional absence of any value. these examples before con
 let y=undefined;
 let price=100;  // avoid sapcing in giving variable names and if apple and APPLE are given the name, then both have different storage and meaning, only letters, digits, _ and $ is allowed in giving name and letter underscore_ and $ should be the first character if using
 //reserved words like console and log etc cant not be used as variable names
-let isFollow=true; //isfollow: in iself we can name the variable with any name, but coders usually write it like this, we can name it whatever we like, but the value of it it which is true or false matters, which is written without inverted commas. Boolean is just true or falue value //convention: not rule, but good if used if using two words like fullname, then first word needs to be stay small, second words first ellter needs to be capital like, fullName
+let isFollow=true; //isfollow: in iself we can name the variable with any name, but coders usually write it like this, we can name it whatever we like, but the value of it it which is true or false matters, which is written without inverted commas. Boolean is just true or falue value //convention: not rule, but good if used if using two words like fullname, then first word needs to be stay small, second words first letter needs to be capital like, fullName
  console.log(name);
 
-// data types: primitive(7 types:number: which has some numbers, string: which contain the value in letter lik( my name is bilal), boolean: isFollow(true or false), undefined:  for eg let x; which conatins no value or property is not defined ,null ,bigint, symbol)
+// data types: primitive(7 types:number: which has some numbers, string: which contain the value in letter like( my name is bilal), boolean: isFollow(true or false), undefined:  for eg let x; which conatins no value or property is not defined ,null ,bigint, symbol)
 
 let a = BigInt("123");
 console.log(a); // just writes n with thevalue. functionality would be defined in practical
@@ -27,7 +27,7 @@ console.log(b); // basically you can assign same values, but with different vari
 
 //non primitive data types: objects( it is a collection of values, if we want save multiple values) these have two further sub categories: arrays & functions
 
-/* EXAMPLE of upper cpncept
+/* EXAMPLE of upper concept
 students
 name bilal  string
 age 30    number
@@ -43,7 +43,7 @@ and this whole set is collection of data which we can save in non primitive data
 };// this is object means collection of information/value. inside block: the terms are called key:value
 console.log(student.age);
 // if we want to change the value inside object downwards is the example  
-// we can not change const value but inside object we can change the value of its content which is called mutation 
+// we can not change const value but inside object we can change the value of its content which is called MUTATION 
 student["age"]+=1;
 student["fullName"]="bilal zaviyar";
 console.log(student);// bassically the age given in the object in upper example is increased with this way by 1. so basically we can change anything inside object with this way. the upper example is in const, so we cant change its value, but if its an object we can change it. so thats the way to change it.
@@ -58,8 +58,8 @@ console.log(student);// bassically the age given in the object in upper example 
  conditional statements: */
 
  // opertators types:  arithematic: +-*/   downwards are also arithematic operators
- //modulas operator %: gives the value of remainder when divided like we used to do it in school, then the value left at the bootm'remainder' it is given
- //exponentiation operator **: its like a aquare, but here power what comes after** so if c**d which is 5**5 that means 5 power 5
+ //modulas operator %: gives the value of remainder when divided like we used to do it in school, then the value left at the bottom'remainder' it is given
+ //exponentiation operator **: its like a square, but here power what comes after** so if c**d which is 5**5 that means 5 power 5
  // unary operators: increment ++ for eg if c is c++ that means c+1, decrement-- for eg if c is c-- that means c-1.    Thats why these are called single opearators. another thing if used ++c or --c the value value will be changed first then it would give output. these are called post and pre increment and decrement
  
  let c=5;
@@ -201,7 +201,7 @@ sum=0;
 for(m=1;m<=5;m++){
     sum=sum+m;
 }
-console.log("sum=", sum); // explaination: what happened is, sum  is 0 , it starts from the value of m, then adds in sum, then goes to last property ++, where it adds ++ which means plus one, then the value of m changes after addition in ++, and sum value already changed when added with m, so they in lop changing values then we get sum of 1 to 5 which is 15.
+console.log("sum=", sum); // explaination: what happened is, sum  is 0 , it starts from the value of m, then adds in sum, then goes to last property ++, where it adds ++ which means plus one, then the value of m changes after addition in ++, and sum value already changed when added with m, so they in loop changing values then we get sum of 1 to 5 which is 15.
 
 //while loop: works same as for loop. for loop is usually used for for counting. while is used best for waiting conditon to become false. you dont kow how many times to repeat eg login, loading etc
 
@@ -227,6 +227,7 @@ for(let b of hamza ){
     size++;
 }
 console.log(size, "string size"); // its counting the charcters of str and in 2nd console log its telling its size which is 10 characters in javascript. where b is written it is called KEY or Iterator
+// its used to loop through the values of an iterable object like string, array, map, set etc. size is a variable to count the characters, these are different from index, index is the position of character in string or array, but size is the total number of characters in string or array. iterable means collection of items like string, array, map, set etc
 
 // for-in loop: it is used on objects, for example multple data of something in strings{}
 let Student={
@@ -237,7 +238,7 @@ let Student={
 };
 for(let details in Student){
     console.log("details", details, "value",Student[details]);
-}// example of for-in loop
+}// example of for-in loop,  details is key or iterator, and student[details] is value of that key. so basically its showing the key and value of that key in object. so its used to loop through the properties of an object. so its a way to acces the key and value of that key(student) in object
 
 let gameNum= 5;
 let userNum = prompt("Guess the game number : ");
@@ -322,7 +323,7 @@ let Items = [250, 645, 300, 900, 501];
  let i = 0;
  for (let val of Items) {
  let offer = val / 10;
- items[i] = items[i] - offer;
+ Items[i] = Items[i] - offer;
  console. log('value after offer = ${Items[i]}');
  i++;  // a way to do the practise question through for-of loop
 }*/
@@ -395,7 +396,7 @@ let arr = [1, 2, 3, 4, 5, 6, 7];
 
  //chapter 5:Functions & Methods
  //Functions: Block of code that performs a specific task, can be invoked whenever needed
- // function definition & function call: first we have to make/define our function then we call it to perform that function. function can be clll multiple times, so that also means what ever function we made in our definition, its gonna perform that function as mnay times as we want
+ // function definition & function call: first we have to make/define our function then we call it to perform that function. function can be called multiple times, so that also means what ever function we made in our definition, its gonna perform that function as many times as we want
 
  // CLEAR EXPLANATION OF FUNCTION: if we want to for example run multipe things like subtraction, addition, multiplacation through operators, just an example, then we use function to set the parameters then inside curly brackets pass those instructions like given in the lower example s=x+y, that could be multiplication subtraction, anything. it would become easy. then to return the value, we can return multiple values but the way is, like if s=x+y, then  we are writing return s, for multiple return, we could write return { s,a,c, etc} whatever we named the variable inside the brackets for instructions use.
 
@@ -405,8 +406,8 @@ function sum (x, y){ // we have to write word function to define function then w
   return s;// return is the value, when the fucntion is called it gives the value
 }
 let varible = sum (3, 4) ;// outside the function we call it like this, which then gives the value
-console. log (val);// so whats happening is we named the function sum and put parameters or values on which its gonna work. so we wanted to add x y so we used operator, the used RETURN, return is what is used to call the function outside curly braces.
-// one job function is if we want to reuse something, avoidng to write code again
+console. log (variable);// so whats happening is we named the function sum and put parameters or values on which its gonna work. so we wanted to add x y so we used operator, the used RETURN, return is what is used to call the function outside curly braces.
+// one job of function is if we want to reuse something, avoidng to write code again
 
 //Arrow functions: compact way of writing a function
 const arrowMul = (a, b) => {
@@ -417,12 +418,22 @@ function countVowels (str) {
    let count = 0;
    for (const char of str) {
    if (char==="a"|| char==="e"|| char==="i"|| char==="o"||char==="u")
+    //another way of writing if condition is if("aeiou".includes(char)) which means if any of these characters are included in char then count it
    {
     count++;
     }
    }
 return count;
 }
+//BETTER EXPLANATION: // so what happened is we made a function named countVowels, then in brackets we put the parameter which is str, then inside curly brackets we made a variable count=0, then we used for of loop to loop through the string, then we used if condition to check the vowels in the string, then we used count++ to count the vowels, then finally we used return count to return the value of count when function is called. 
+
+
+// ANOTHER imp thing to note that the function is always called outside the curly brackets of function, so we call it by making a variable named anything. so function is made, but the code inside curly brackets is not executed until we call it. so we call it by making a variable named anything, then we write the name of function and in brackets we put the value on which its gonna work, so the value is string in this case. then when the function is execcuted means completes its task, then its output cant go out, for that we have to use return, along side the variable or something whose value we need to show outside. and that value can be used in another function aswell. 
+
+
+
+
+
 /*forEach Loop in Arrays. it is also called higher order function/methods beacuse they take other functions as parameter or return it
 arr.forEach(callBackFunction)
 CallbackFunction: Here, it is a function to execute for each element in the array
@@ -430,13 +441,28 @@ callback is a function passed as an argument to another function.
 */
 //example
 let ARR = [1, 2, 3, 4, 5];
-ARR. forEach (function printVal(val) {
+ARR.forEach (function printVal(val){
 console. log(val);
-}) ;
+});
 
 //map method
 /*Creates a new array with the results of some operation. The value its callback returns are used to form new array
-arr.map( callbackFnx value, index, array ) ) */
+arr.map( callbackFnx value, index, array ) ) */// Example: Using forEach to modify and print array elements with their indices
+let numbers = [10, 20, 30, 40, 50];
+
+numbers.forEach(function process(val, idx, arr) {
+  arr[idx] = val * 2; // Double each value in the array
+  console.log(`Index ${idx}: Value ${val} → New Value ${arr[idx]}`);
+});
+
+console.log("Modified array:", numbers);
+
+// Explanation:
+// - The forEach method loops through each element of the array 'numbers'.
+// - The callback function 'process' receives three arguments: the current value (val), its index (idx), and the whole array (arr).
+// - Inside the callback, we double the value at each index and update the array.
+// - We also print the index, original value, and new value for each element.
+// - After the loop, the original array 'numbers' is modified with all values doubled.
 //example
 let nums = [67, 52, 39];
 let newArr = nums.map ( (val) => {
@@ -522,7 +548,7 @@ console.dir(allEl);//all elements. it selectes all elements of selected selector
 
 /*
 Properties: for example the property tagName. the second words first letter always stays capital, so that no error comes. you just have to write element or variable name.tagname , other property names etc to get the result. its written in console in browser. 
-concept of first & last child for example there are multiple tags inside parent tag, then we can them by this way as well
+concept of first & last child for example there are multiple tags inside parent tag, then we can call them by this way as well
 
 • tagName: returns tag for element nodes
 • innerText: returns the text content of the element and all its children. parent nodes, child nodes(which are inside some tags). third type is sibling, the tags on same levels. shows text inside tags parent to children all
@@ -1016,3 +1042,83 @@ Http response headers: these are the metadata associated with the response. they
 try -catch: it is used to handle errors in the code. 
 response.ok: handles server errors. it is a boolean value that indicates whether the response was successful or not. if the response status code is in the range of 200-299, then response.ok is true, otherwise it is false.
 */
+
+
+
+
+
+
+
+// 🔵 Practice API (free GitHub API, not real-world production)
+const BASE_URL =
+  "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+
+// 🟢 Real DOM Selection
+const dropdowns = document.querySelectorAll(".dropdown select");
+const btn = document.querySelector("form button");
+const fromCurr = document.querySelector(".from select");
+const toCurr = document.querySelector(".to select");
+const msg = document.querySelector(".msg");
+
+// 🟢 Populate dropdown options dynamically
+for (let select of dropdowns) {
+  for (let currCode in countryList) {
+    let newOption = document.createElement("option");
+    newOption.innerText = currCode;
+    newOption.value = currCode;
+
+    // Default selection
+    if (select.name === "from" && currCode === "USD") {
+      newOption.selected = "selected";
+    } else if (select.name === "to" && currCode === "INR") {
+      newOption.selected = "selected";
+    }
+
+    select.append(newOption);
+  }
+}
+
+// 🟢 Update flag when currency changes
+const updateFlag = (element) => {
+  let currCode = element.value;
+  let countryCode = countryList[currCode];
+  let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
+  let img = element.parentElement.querySelector("img");
+  img.src = newSrc;
+};
+
+// Apply flag update when dropdown changes
+for (let select of dropdowns) {
+  select.addEventListener("change", (evt) => {
+    updateFlag(evt.target);
+  });
+}
+
+// 🟢 Handle button click → fetch exchange rate
+btn.addEventListener("click", async (evt) => {
+  evt.preventDefault(); // stop form reload
+
+  let amount = document.querySelector(".amount input");
+  let amtVal = amount.value;
+
+  if (amtVal === "" || amtVal < 1) {
+    amtVal = 1;
+    amount.value = "1";
+  }
+
+  // 🔵 Build API URL for practice
+  const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
+
+  // 🟢 Fetch data
+  let response = await fetch(URL);
+  let data = await response.json();
+
+  // 🟢 Extract exchange rate
+  let rate = data[toCurr.value.toLowerCase()];
+
+  // 🟢 Calculate final amount
+  let finalAmount = amtVal * rate;
+
+  // 🟢 Show result
+  msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+});
