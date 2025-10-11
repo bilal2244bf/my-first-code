@@ -21,18 +21,138 @@ Overall, Git is a powerful tool for collaboration and version control in softwar
 -->
 
 <!--
-there are 3 area of git
-1. working directory: where we do our work, make changes to files, like write code, add images, delete files etc, make different html cs js files etc
-2. staging area: when we are done with our work, we stage the changes, means we prepare the changes to be committed, we can stage specific files or all files, staging is like saying "these changes are ready to be saved". for that we use plus sign in git gui or git add . in terminal, or in commit section of git gui
+there are 3 areas of git
+1. working directory: where we do our work, make changes to files, like write code, add images, delete files etc, make different html cs js files etc. then we git add those files to staging area
+2. staging area: after git add. its staging area after doing some debugging or something else we git commit after staging. when we are done with our work, we stage the changes, means we prepare the changes to be committed, we can stage specific files or all files, staging is like saying "these changes are ready to be saved". for that we use plus sign in git gui or git add . in terminal, or in commit section of git gui
 3. local repository: when we commit the changes, they are saved in the repository, which is a hidden .git folder in our project directory.
 4. remote repository: its a copy of our local repository, hosted on a server like github, gitlab, bitbucket etc, so that we can share our code with others, collaborate on projects, and keep a backup of our work. we can push our changes to remote repository using git push command in terminal or push button in git gui. the changes can be made in the terminal as well as source control tab of vscode. in remote we have the version of our code, so if we make any mistake in local repo, we can always go back to remote repo and get the previous version of our code.
 -->
 
+
+
+
+
+
 <!-- TERMINOLOGIES
  GUI: graphical user interface, its a visual way of interacting with git, like git gui, sourcetree, github desktop etc, where we can see the changes, stage them, commit them, push them to remote repo etc. meaning  buttons, checkboxes, text fields etc
 
- CLI: command line interface, its a text based way of interacting with git, like git bash, terminal etc, where we can type commands to do the same things as in gui, like git add, git commit, git push etc. meaning typing commands in terminal or command prompt. CLI is more powerful and flexible than GUI, but it requires more knowledge and practice to use it effectively.
+ CLI: command line interface, ITS MAIN PURPOSE IS TO CONNECT TO GITHUB,WHICH MEANS TO CONTROL GITHUB ACCOUNT FROM CLI RATHER THAN GUI WHICH MEANS TO LOGIN ON WEBPAGE AND O TASKS ON GITHUB. SO, AIN PURPOSE OF DOWNLOADING CLI IS THAT. its starts with gh .  its a text based way of interacting with git, like git bash, terminal etc, where we can type commands to do the same things as in gui, like git add, git commit, git push etc. meaning typing commands in terminal or command prompt. CLI is more powerful and flexible than GUI, but it requires more knowledge and practice to use it effectively.
+-->
 
-    BASIC GIT COMMANDS
-    git init: initializes a new git repository in the current directory 
+
+
+
+
+<!--
+BASIC GIT, TERMINAL AND CLI COMMANDS
+    pwd: print working directory, shows the current directory path in terminal. before git init, we should be in the project folder in terminal, so that git init can initialize the git tracking in that folder
+
+    mkdir folder-name: makes a new directory with the specified folder name in the current directory, we can use it to create a new project folder before running git init
+
+    dir or ls: lists the files and directories in the current directory, we can use it to check if we are in the correct project folder before running git init 
+
+    cd: change directory, used to navigate to different directories in terminal. we should navigate to our project folder using cd command before running git init
+
+    cd .. : to go back to previous directory in terminal. whenever we type cd .. it takes us one step back in the directory structure
+
+    cd folder-name: to go inside a specific folder in terminal. we can use it to navigate to our project folder before running git init
+    we can just copy the path from file explorer and paste it after cd command in terminal to navigate to our project folder directly. but its the best practice to use cd command to navigate to project folder, so that we can learn the directory structure and how to navigate in terminal
+
+    touch filename: creates a new file with the specified filename in the current directory. we can use it to create new files in our project folder before staging and committing them. its a short way to make files inside the folder from terminal. you can make multiple files at once by writing space between file names eg touch index.html style.css app.js
+
+    rm filename: removes the specified file from the current directory. we can use it to delete files from our project folder before staging and committing them. be careful while using this command, as it permanently deletes the file from the directory
+
+    rm -r folder-name: removes the specified folder and its contents from the current directory. we can use it to delete folders from our project folder before staging and committing them. be careful while using this command, as it permanently deletes the folder and its contents from the directory
+    clear: clears the terminal screen.
+
+    code . : opens the current directory in VSCode, we can use it to open our project folder in VSCode after navigating to it in terminal
+
+    mv filename new-filename: renames the specified file to the new filename in the current directory. we can use it to rename files in our project folder before staging and committing them
+
+                    IMP NOTE: these are basic terminal commands, they are not specific to git, we use them to navigate and manage files and directories in terminal before using git commands. these commands work in any terminal, not just git bash or vscode terminal.
+---------------------------------------------------------------------------
+
+
+   gh auth login: to login to github from terminal. first time step to connect local repo to remote repo. gh repo will not work without this step. it requires github CLI to be installed in your system. 
+
+   gh auth logout: to logout from github in terminal
+
+   gh repo create: creates a new remote repository on GitHub and links it to the local repository, way to write it in terminal: gh repo create repo-name --public --source=(HERE YOU WRITE LINK TO LOCAL FOLDER IN INVERTED COMMAs) --remote=origin --push explanation of flags: --public: makes the repository public, so that anyone can see it. we can also use --private to make the repository private, so that only we and the collaborators we invite can see it. --source: specifies the local directory to be linked to the remote repository. we should provide the path to our project folder here. --remote: specifies the name of the remote repository, usually origin is used as the default name for the main remote repository. --push: pushes the local commits to the remote repository after creating it, so that our code is uploaded to github immediately after creating the remote repo.
+
+   git init: initializes a new git repository in the current directory
+   one time step which starts the git tracking in our project folder
+
+   git remote add origin <remote-repo-url>: links the local repository to a remote repository. but there are two ways to link local repo to remote repo, one is through gh repo create command, which creates a new remote repo on github and links it to local repo in one step. second is through git remote add origin command, which links the local repo to an existing remote repo on github. we should use this command if we have already created a remote repo on github through web interface and want to link it to our local repo. <remote-repo-url> is the URL of the remote repository on github, which we can find on the github page of the repository. we should copy the URL and paste it in place of <remote-repo-url> in the command. origin is the name of the remote repository, we can use any name, but origin is the default name used by git for the main remote repository.
+
+    git add: stages changes to be committed, we can stage specific files or all files
+
+    git add . : stages all changes in the current directory and its subdirectories
+
+    git add filename: stages a specific file, we can use it to stage individual files before committing them for example git add index.html
+
+    git status: shows the current status of the repository, including staged and unstaged changes. we can use it to check which files are staged, unstaged, untracked etc before committing them
+
+    git commit: saves the staged changes to the local repository with a message (-m) describing the changes. way to write it in terminal: git commit -m "commit message" , where "commit message" is a brief description of the changes made.
+
+    .gitignore: a file that specifies which files and directories should be ignored by git. we can use it to exclude files that are not relevant to our project, like temporary files, build files, or sensitive information. we should create a .gitignore file in the root directory of our project and add the names of the files and directories we want to ignore, one per line. for example, if we want to ignore all .log files and any named directory, we can add the following lines to the .gitignore file:
+    *.log: it will ignore all files with .log extension
+    directory-name/: it will ignore the specified directory and its contents
+
+    git push: pushes the committed changes to the remote repository. we should use it after making commits to upload our code to github.
+    git push -u origin main: pushes the committed changes to the remote repository on the main branch. here -u means upstream, which sets the default remote branch for the current local branch. we should use it the first time we push to a new remote repository, so that we can use git push and git pull commands without specifying the remote and branch names in future. main is the name of the branch we are pushing to, which is usually main or master. we should use the correct branch name based on our repository setup.
+
+    git log: shows the commit history of the repository. each commit has a unique ID, author, date and message
+
+    git log --oneline: shows a condensed version of the commit history, with each commit displayed on a single line
+
+    git remote -v: shows the remote repositories linked to the local repository means which account is linked to this local repo, we can use it to check if our local repo is linked to the correct remote repo on github
+
+    
+    
+    git config: used to set configuration options for git, like user name and email
+
+    git config --list: shows the current configuration options for git, we can use it to check if our user name and email are set correctly
+    git config --global user.name "Your Name": sets the user name for git commits, we should set it before making our first commit
+    git config --global user.email "your.email@example.com": sets the email address for git commits, we should set it before making our first commit
+    git config EXPLANATION: so in organizations, many people work on same project, so to identify who made which commit, git uses user name and email address, so its important to set them correctly before making commits. so github account make organizations, add members through their github account by adding their credentials, so that when they make commits, their user name and email address are linked to their github account, so that we can see who made which commit in the commit history on github. its a one time step, once we set it, we dont need to set it again for future projects, unless we want to change it. EVEN ON SAME LAPTOP IF TWO PEROPLE ARE WORKING, THEY SHOULD SET THEIR OWN CREDENTIALS(EVEN IF THOSE CREDENTIALS ARE ON REGISTRED ON GITHUB), SO THAT THEIR COMMITS ARE LINKED TO THEIR GITHUB ACCOUNT.
+
+    --GLOBAL: means the configuration is set for all repositories on the system, not just the current repository. if we dont use --global, the configuration will be set only for the current repository.
+
+    --LOCAL: means the configuration is set only for the current repository, not for all repositories on the system. its the default behavior if we dont use --global
+
+    --: MEANS FLAG, ITS A WAY TO PASS OPTIONS TO COMMANDS IN TERMINAL. FOR EXAMPLE, IN git commit -m "message", -m IS A FLAG THAT TELLS GIT TO USE THE FOLLOWING STRING AS THE COMMIT MESSAGE. FLAGS ARE USUALLY SHORTCUTS FOR LONGER OPTIONS, AND THEY MAKE IT EASIER TO TYPE COMMANDS IN TERMINAL.
+
+    
+
+    
+    git diff:
+
+    
+    commit hash: its a unique identifier for each commit, a long string of letters and numbers that is generated by git when we make a commit. we can use it to refer to specific commits when using commands like git checkout or git revert.
+
+
+    
+    
+    
+    git pull: pulls the latest changes from the remote repository to the local repository. we should use it before making changes to our code, so that we have the latest version of the code from github.
+    git ignore: a file that specifies which files and directories should be ignored by git. we can use it to exclude files that are not relevant to our project, like temporary files, build files, or sensitive information.  the practical way to do it
+
+    -->
+
+
+
+
+
+
+<!-- SHORT COMMANDS 
+ search from file: ctrl + f
+ align code: alt + z
+ open terminal: ctrl + `
+ open new tab in terminal: ctrl + shift + `
+ q shortcut: to get out of git log, when you open details in terminal, you use 'q' to get out of it
+    open new file: ctrl + n
+    save file: ctrl + s
+    open file: ctrl + o
+    close file: ctrl + w
+
 -->
